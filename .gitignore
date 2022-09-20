@@ -1,63 +1,41 @@
-# This file is used for Git repositories to specify intentionally untracked files that Git should ignore. 
-# If you are not using git, you can delete this file. For more information see: https://git-scm.com/docs/gitignore
-# For useful gitignore templates see: https://github.com/github/gitignore
-
-# Salesforce cache
-.sfdx/
-.localdevserver/
-
-# LWC VSCode autocomplete
-**/lwc/jsconfig.json
-
-# LWC Jest coverage reports
-coverage/
-
-# LWC VSCode autocomplete	
-**/lwc/jsconfig.json	
-
-# LWC Jest coverage reports	
-coverage/
-
-# Logs
-logs
+lib-cov
+*.seed
 *.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+*.swp
 
-# Dependency directories
-node_modules/
+pids
+logs
+results
+tmp
 
-# Eslint cache
-.eslintcache
+# Build
+public/css/main.css
 
-# MacOS system files
-.DS_Store
+# Coverage reports
+coverage
 
-# Windows system files
-Thumbs.db
-ehthumbs.db
-[Dd]esktop.ini
-$RECYCLE.BIN/
-
-# Visual Studio Code IDE
-.vscode/
-
-# IlluminatedCloud IDE
-*.iml
-.idea/
-IlluminatedCloud/
-
-build.properties
-
-lib/ant-salesforce.jar
-
-# This always misbehaves
-SRC/cleanDataServices/DataCloudGeoLocation.cleanDataService
-
-# Used for manual deployments
-mdapi-source/
-
-# Environment variables
+# API keys and secrets
 .env
-salesforce-redshift-shared
+
+# Dependency directory
+node_modules
+bower_components
+
+# Editors
+.idea
+*.iml
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Ignore built ts files
+dist/**/*
+
+# ignore yarn.lock
+yarn.lock
