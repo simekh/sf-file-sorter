@@ -1,2 +1,2 @@
-//__directory__/selectors/level1/
+//__directory__/models/
 hejhej1
