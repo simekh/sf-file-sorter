@@ -2,12 +2,12 @@ import { readdir, stat } from 'fs/promises';
 import { resolve } from 'path';
 
 export class folderCrawler {
-  public async *movableFiles(rootPath: string): any {
+  public async *getMovableFiles(rootPath: string): any {
     const fileNames = await readdir(rootPath);
     for (const fileName of fileNames) {
       const path = resolve(rootPath, fileName);
       if ((await stat(path)).isDirectory()) {
-        yield* this.movableFiles(path);
+        yield* this.getMovableFiles(path);
       } else if (!this.isSFClassMetaFile(fileName)) {
         yield path;
       }

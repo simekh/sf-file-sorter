@@ -8,7 +8,7 @@ const fileIterator = new fileCrawler(workingDirPath);
 
 (async () => {
   var moveableFiles: string[] = [];
-  for await (const filePath of folderIterator.movableFiles(workingDirPath)) {
+  for await (const filePath of folderIterator.getMovableFiles(workingDirPath)) {
     moveableFiles.push(filePath);
   }
 
