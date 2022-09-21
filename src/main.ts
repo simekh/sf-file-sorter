@@ -7,9 +7,12 @@ const workingDirPath = resolve('test/classes');
 const fileIterator = new fileCrawler(workingDirPath);
 
 (async () => {
-  for await (const filePath of folderIterator.getFilePaths(workingDirPath)) {
-    if (filePath.endsWith('.cls')) {
-      await fileIterator.processLineByLine(filePath);
-    }
+  var moveableFiles: string[] = [];
+  for await (const filePath of folderIterator.movableFiles(workingDirPath)) {
+    moveableFiles.push(filePath);
+  }
+
+  for (const filePath of moveableFiles) {
+    await fileIterator.processLineByLine(filePath);
   }
 })();
