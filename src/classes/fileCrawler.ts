@@ -2,7 +2,7 @@ import { basename, dirname } from 'path';
 import { createReadStream, existsSync, mkdirSync, rename } from 'fs';
 import { createInterface } from 'readline';
 
-export class fileCrawler {
+export class FileCrawler {
   workingDirPath;
   DESTINATIONIDENTIFIER;
   filePath;
@@ -48,7 +48,7 @@ export class fileCrawler {
   }
 
   private fileShouldMove(newPath: string): boolean {
-    var oldPath = this.filePath;
+    const oldPath = this.filePath;
     return oldPath !== newPath;
   }
 

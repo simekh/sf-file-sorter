@@ -1,18 +1,18 @@
 import { resolve } from 'path';
-import { folderCrawler } from './classes/folderCrawler';
-import { fileCrawler } from './classes/fileCrawler';
+import { FolderCrawler } from './classes/FolderCrawler';
+import { FileCrawler } from './classes/FileCrawler';
 
-const folderIterator = new folderCrawler();
+const folderCrawler = new FolderCrawler();
 const workingDirPath = resolve('test/classes');
-const fileIterator = new fileCrawler(workingDirPath);
+const fileCrawler = new FileCrawler(workingDirPath);
 
 (async () => {
-  var moveableFiles: string[] = [];
-  for await (const filePath of folderIterator.getMovableFiles(workingDirPath)) {
+  const moveableFiles: string[] = [];
+  for await (const filePath of folderCrawler.getMovableFiles(workingDirPath)) {
     moveableFiles.push(filePath);
   }
 
   for (const filePath of moveableFiles) {
-    await fileIterator.processLineByLine(filePath);
+    await fileCrawler.processLineByLine(filePath);
   }
 })();

@@ -1,7 +1,7 @@
 import { readdir, stat } from 'fs/promises';
 import { resolve } from 'path';
 
-export class folderCrawler {
+export class FolderCrawler {
   public async *getMovableFiles(rootPath: string): any {
     const fileNames = await readdir(rootPath);
     for (const fileName of fileNames) {
