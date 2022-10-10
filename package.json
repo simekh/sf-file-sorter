@@ -1,8 +1,13 @@
 {
-  "name": "ts-default-app",
-  "version": "1.0.0",
-  "description": "Project created as base for any ts-project in VSCode",
-  "main": "main.ts",
+  "name": "sf-file-sorter-2",
+  "version": "1.0.2",
+  "description": "Application to help sort Salesforce classes into folders",
+  "main": "dist/main.js",
+  "types": "dist/indes.d.ts",
+  "files" : ["dist/**/*"],
+  "bin": {
+    "sf-file-sorter-2": "dist/main.js"
+}, 
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",

@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { resolve } from 'path';
 import { FolderCrawler } from './classes/FolderCrawler';
 import { FileCrawler } from './classes/FileCrawler';
