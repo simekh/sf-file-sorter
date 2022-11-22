@@ -1,6 +1,6 @@
 {
   "name": "sf-file-sorter",
-  "version": "1.0.4",
+  "version": "1.0.8",
   "description": "Application to help sort Salesforce classes into folders",
   "main": "dist/main.js",
   "types": "dist/indes.d.ts",
