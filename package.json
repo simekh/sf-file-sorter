@@ -1,12 +1,12 @@
 {
-  "name": "sf-file-sorter-2",
-  "version": "1.0.2",
+  "name": "sf-file-sorter",
+  "version": "1.0.4",
   "description": "Application to help sort Salesforce classes into folders",
   "main": "dist/main.js",
   "types": "dist/indes.d.ts",
   "files" : ["dist/**/*"],
   "bin": {
-    "sf-file-sorter-2": "dist/main.js"
+    "sf-file-sorter": "dist/main.js"
 }, 
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
