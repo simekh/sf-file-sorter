@@ -13,7 +13,7 @@ export class FileCrawler {
     this.filePath = '';
   }
 
-  public async processLineByLine(path: string) {
+  public async processLineByLine(path: string): Promise<boolean> {
     this.filePath = path;
     const fileStream = createReadStream(this.filePath);
 
@@ -22,19 +22,22 @@ export class FileCrawler {
       crlfDelay: Infinity
     });
 
+    var hasMovedFile = false;
     for await (const line of readline) {
       if (line.startsWith(this.DESTINATIONIDENTIFIER)) {
         this.moveFileToNewDestination(line);
-        break;
+        hasMovedFile = true;
+        return hasMovedFile;
       }
     }
+    return hasMovedFile;
   }
 
   private moveFileToNewDestination(identifierPath: string): void {
     const destinationDir = this.getFileDestination(identifierPath);
     const newFilePath = this.getNewFilePath(destinationDir);
     if (this.fileShouldMove(newFilePath)) {
-      this.moveFile(newFilePath, true);
+      this.moveFile(newFilePath);
     }
   }
 
@@ -57,7 +60,7 @@ export class FileCrawler {
     return destinationDir + filename;
   }
 
-  private moveFile(newFilePath: string, isSalesforceClsFile: boolean): void {
+  private moveFile(newFilePath: string): void {
     const newFileDir = dirname(newFilePath);
     if (!existsSync(newFileDir)) {
       mkdirSync(newFileDir, { recursive: true });
@@ -66,11 +69,8 @@ export class FileCrawler {
     rename(this.filePath, newFilePath, (err) => {
       if (err) throw err;
     });
-    console.log(`Moved "${this.filePath}" to "${newFilePath}" `);
 
-    if (isSalesforceClsFile) {
-      this.moveMetaXmlFile(newFilePath);
-    }
+    this.moveMetaXmlFile(newFilePath);
   }
   private moveMetaXmlFile(newFilePath: string): void {
     const oldMetaFilePath = `${this.filePath}-meta.xml`;
@@ -81,6 +81,5 @@ export class FileCrawler {
         throw err;
       }
     });
-    console.log(`Moved "${oldMetaFilePath}" to "${newMetaFilePath}" `);
   }
 }

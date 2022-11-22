@@ -13,7 +13,12 @@ const fileCrawler = new FileCrawler(workingDirPath);
     moveableFiles.push(filePath);
   }
 
+  var countMovedFiles = 0;
   for (const filePath of moveableFiles) {
-    await fileCrawler.processLineByLine(filePath);
+    var hasMovedFile = await fileCrawler.processLineByLine(filePath);
+    if (hasMovedFile) {
+      countMovedFiles++;
+    }
   }
+  console.log(`Sf-File-Sorter: Organized ${countMovedFiles} files of ${moveableFiles.length}`);
 })();
