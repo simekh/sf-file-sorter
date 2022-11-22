@@ -4,7 +4,7 @@ import { FolderCrawler } from './classes/FolderCrawler';
 import { FileCrawler } from './classes/FileCrawler';
 
 const folderCrawler = new FolderCrawler();
-const workingDirPath = resolve('test/classes');
+const workingDirPath = resolve('temp/classes');
 const fileCrawler = new FileCrawler(workingDirPath);
 
 (async () => {
