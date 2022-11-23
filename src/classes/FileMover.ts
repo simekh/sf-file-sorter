@@ -18,6 +18,10 @@ export class FileMover {
   }
 
   public execute(): void {
+    if (!existsSync(this.oldPath)) {
+      return;
+    }
+
     const destinationDir = dirname(this.newPath);
     if (!existsSync(destinationDir)) {
       mkdirSync(destinationDir, { recursive: true });
@@ -32,7 +36,7 @@ export class FileMover {
     }
   }
 
-  private isClassFile(){
+  private isClassFile() {
     return this.oldPath.endsWith('.cls');
   }
 
