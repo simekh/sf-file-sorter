@@ -1,9 +1,8 @@
 {
-    "destination-by-source-file-path": [
-      { "temp/classes/AccountHelper.cls": "temp/classes/models/" },
-      { "temp/classes/AccountHelper2.cls": "temp/classes/models/level1/" },
-      { "temp/classes/AccountHelper3.cls": "temp/classes/selectors/" },
-      { "temp/classes/asdasdasd.cls": "temp/classes/selectors/asd/" }
-    ]
-  }
-  
+  "destination-by-source-file-path": [
+    { "temp/classes/AccountHelper.cls": "temp/classes/models/" },
+    { "temp/classes/AccountHelper2.cls": "temp/classes/models/level1/" },
+    { "temp/classes/AccountHelper3.cls": "temp/classes/selectors/" },
+    { "temp/classes/asdasdasd.cls": "temp/classes/selectors/asd/" }
+  ]
+}
