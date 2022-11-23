@@ -17,9 +17,10 @@ export class FileMover {
     return resolve(destinationDir + filename);
   }
 
-  public execute(): void {
+  public execute(): boolean {
+    let movedFile = false
     if (!existsSync(this.oldPath)) {
-      return;
+      return movedFile;
     }
 
     const destinationDir = dirname(this.newPath);
@@ -34,6 +35,7 @@ export class FileMover {
     if (this.isClassFile()) {
       this.moveMetaXmlFile();
     }
+    return movedFile = true;
   }
 
   private isClassFile() {
