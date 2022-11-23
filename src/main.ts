@@ -7,6 +7,6 @@ const configHandler = new ConfigHandler();
 (async () => {
   for (const destinationBySource of configHandler.workload()) {
     const fileMover = new FileMover(destinationBySource);
-    fileMover.moveFile();
+    fileMover.execute();
   }
 })();

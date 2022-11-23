@@ -17,7 +17,7 @@ export class FileMover {
     return resolve(destinationDir + filename);
   }
 
-  public moveFile(): void {
+  public execute(): void {
     const destinationDir = dirname(this.newPath);
     if (!existsSync(destinationDir)) {
       mkdirSync(destinationDir, { recursive: true });
