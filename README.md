@@ -8,7 +8,7 @@ A plugin built for Salesforce sfdx-projects that moves Salesforce .cls and -cls-
 
 ## Prerequisites
 
-You need to add sf-file-sorter/config.json to your project root folder and populate the config with a mapping of the relative paths of files you want to move and the corresponding relative destination. The config files is expected to have a key with name "destination-by-source-file-path" with an array of objects as value. The array takes objects where the key is the source file relative path and the value is the destination relative directory.
+You need to add .sf-file-sorter/config.json to your project root folder and populate the config with a mapping of the relative paths of files you want to move and the corresponding relative destination. The config files is expected to have a key with name "destination-by-source-file-path" with an array of objects as value. The array takes objects where the key is the source file relative path and the value is the destination relative directory.
 
 _Example Config.json_
 
